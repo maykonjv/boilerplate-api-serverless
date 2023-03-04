@@ -1,0 +1,22 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "spec": {
+    "outputDirectory": "public",
+    "specVersion": 3,
+    "securityDefinitions": {
+      "x-api-key": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "query"
+      },
+
+      "authorization": {
+        "type": "apiKey",
+        "name": "authorization",
+        "in": "query"
+      }
+    }
+  },
+  "ignore": ["**/node_modules/**"]
+}

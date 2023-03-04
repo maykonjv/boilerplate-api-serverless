@@ -1,0 +1,39 @@
+service: boilerplate-api-serverless
+#description: Boilerplate API with Serverless Framework + Typescript + Express + Swagger + TSOA
+frameworkVersion: "3"
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'prod'}
+  region: us-east-1
+  timeout: 29
+  memorySize: 512
+  versionFunctions: false
+  httpApi:
+    payload: "2.0"
+    cors: true
+
+package:
+  patterns:
+    - "!**/node_modules/**"
+    - "**/public/**"
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /{docs+}
+          method: get
+      - httpApi:
+          path: /v1/hello
+          method: get
+      - httpApi:
+          path: /v2/hello
+          method: get
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline

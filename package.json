@@ -1,0 +1,36 @@
+{
+  "name": "boilerplate-api-serverless",
+  "version": "1.0.0",
+  "description": "boilerplate for serverless with typescript and swagger",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "sls offline start",
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:prod": "sls deploy --stage prod",
+    "remove:dev": "sls remove --stage dev",
+    "remove:prod": "sls remove --stage prod",
+    "prestart": "npm run swagger",
+    "predeploy:dev": "npm run swagger",
+    "predeploy:prod": "npm run swagger",
+    "swagger": "tsoa spec"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.25",
+    "serverless-esbuild": "^1.25.0",
+    "serverless-offline": "^8.0.0"
+  },
+  "keywords": [
+    "serverless",
+    "typescript",
+    "swagger",
+    "tsoa",
+    "esbuild",
+    "serverless-offline"
+  ],
+  "author": "Maykon",
+  "dependencies": {
+    "express": "^4.18.2",
+    "serverless-http": "^3.1.1",
+    "tsoa": "^5.1.1"
+  }
+}
